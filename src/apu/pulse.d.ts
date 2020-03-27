@@ -1,0 +1,30 @@
+import { uint8 } from '../api/types';
+import { IChannel } from '../api/apu';
+export declare class Pulse implements IChannel {
+    private readonly channel;
+    volume: number;
+    isEnabled: boolean;
+    lengthCounter: number;
+    private duty;
+    private isEnvelopeLoop;
+    private isConstantVolume;
+    private envelopeValue;
+    private envelopeVolume;
+    private envelopeCounter;
+    private isSweepEnabled;
+    private sweepPeriod;
+    private isSweepNegated;
+    private sweepShift;
+    private sweepCounter;
+    private timer;
+    private internalTimer;
+    private counter;
+    constructor(channel: number);
+    clock(): void;
+    processEnvelope(): void;
+    processLinearCounter(): void;
+    processLengthCounter(): void;
+    processSweep(): void;
+    write(offset: uint8, data: uint8): void;
+    private step;
+}

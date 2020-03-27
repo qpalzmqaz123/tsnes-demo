@@ -1,0 +1,31 @@
+import { IAPU } from '../api/apu';
+import { uint16, uint8 } from '../api/types';
+import { IBus } from '../api/bus';
+import { IInterrupt } from '../api/interrupt';
+export declare class APU implements IAPU {
+    private readonly sampleRate;
+    private onSample;
+    interruptLine: IInterrupt;
+    private pulse1;
+    private pulse2;
+    private triangle;
+    private noise;
+    private dmc;
+    private frameInterruptFlag;
+    private mode;
+    private isIRQEnabled;
+    private clocks;
+    private sampleCounter;
+    private frameCounter;
+    constructor(sampleRate: number, onSample: (volume: number) => void);
+    set cpuBus(cpuBus: IBus);
+    set interrupt(interrupt: IInterrupt);
+    clock(): void;
+    read(address: uint16): uint8;
+    write(address: uint16, data: uint8): void;
+    private sampleOutput;
+    private processFrameCounter;
+    private processEnvelopeAndLinearCounter;
+    private processLengthCounterAndSweep;
+    private triggerIRQ;
+}
