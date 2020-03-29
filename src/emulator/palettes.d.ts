@@ -1,1 +1,1 @@
-export declare function getColor(index: number): number[];
+export declare function getColor(index: number): number;
