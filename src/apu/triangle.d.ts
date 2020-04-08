@@ -2,7 +2,6 @@ import { uint8 } from '../api/types';
 import { IChannel } from '../api/apu';
 export declare class Triangle implements IChannel {
     volume: number;
-    isEnabled: boolean;
     lengthCounter: number;
     private lenghtCounterHalt;
     private linearCounterLoad;
@@ -11,6 +10,9 @@ export declare class Triangle implements IChannel {
     private timer;
     private internalTimer;
     private counter;
+    private enable;
+    get isEnabled(): boolean;
+    set isEnabled(isEnabled: boolean);
     clock(): void;
     processEnvelope(): void;
     processLinearCounter(): void;

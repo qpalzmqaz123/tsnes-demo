@@ -2,7 +2,6 @@ import { uint16, uint8 } from '../api/types';
 import { IChannel } from '../api/apu';
 export declare class Noise implements IChannel {
     volume: number;
-    isEnabled: boolean;
     lengthCounter: number;
     private isLengthCounterHalt;
     private isConstantVolume;
@@ -12,6 +11,9 @@ export declare class Noise implements IChannel {
     private isLoopNoise;
     private noisePeriod;
     private internalTimer;
+    private enable;
+    get isEnabled(): boolean;
+    set isEnabled(isEnabled: boolean);
     clock(): void;
     processEnvelope(): void;
     processLinearCounter(): void;

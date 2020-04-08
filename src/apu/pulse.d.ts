@@ -3,7 +3,6 @@ import { IChannel } from '../api/apu';
 export declare class Pulse implements IChannel {
     private readonly channel;
     volume: number;
-    isEnabled: boolean;
     lengthCounter: number;
     private duty;
     private isEnvelopeLoop;
@@ -19,7 +18,10 @@ export declare class Pulse implements IChannel {
     private timer;
     private internalTimer;
     private counter;
+    private enable;
     constructor(channel: number);
+    get isEnabled(): boolean;
+    set isEnabled(isEnabled: boolean);
     clock(): void;
     processEnvelope(): void;
     processLinearCounter(): void;
