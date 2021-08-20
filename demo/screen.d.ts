@@ -9,5 +9,5 @@ export declare class Screen {
     private readonly hiddenScreenImgData;
     private readonly hiddenImage;
     constructor(canvas: HTMLCanvasElement, context?: CanvasRenderingContext2D);
-    onFrame(frame: Uint8Array): void;
+    onFrame(frame: Uint32Array): void;
 }

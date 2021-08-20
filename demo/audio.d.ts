@@ -9,5 +9,4 @@ export declare class Audio {
     get sampleRate(): number;
     onSample(volume: number): void;
     private process;
-    private waitSample;
 }

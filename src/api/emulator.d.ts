@@ -2,7 +2,7 @@ import { IStandardController } from './controller';
 export interface IOptions {
     sampleRate: number;
     onSample: (volume: number) => void;
-    onFrame: (frame: Uint8Array) => void;
+    onFrame: (frame: Uint32Array) => void;
     sramLoad?: Uint8Array;
 }
 export interface IEmulator {
